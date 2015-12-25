@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Konva from 'konva';
 import Container from './abstract/Container';
 
@@ -8,7 +9,7 @@ class Stage extends Container {
 
   createKonvaNode() {
     return new Konva.Stage({
-      container: React.findDOMNode(this.refs.canvas)
+      container: ReactDOM.findDOMNode(this.refs.canvas)
     });
   }
 
@@ -16,7 +17,7 @@ class Stage extends Container {
     return (
         <div>
           <div ref="canvas"></div>
-          {React.Children.map(this.props.children, child => child ? React.addons.cloneWithProps(child) : null)}
+          {React.Children.map(this.props.children, child => child ? React.cloneElement(child) : null)}
         </div>
     );
   }

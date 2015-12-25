@@ -19,6 +19,18 @@ exports['default'] = {
   onTouchEnd: 'touchend.react',
   onTap: 'tap.react',
   onDblTap: 'dbltap.react',
-  onDragMove: 'dragmove.react'
+  onDragMove: 'dragmove.react',
+  onContentClick: 'contentClick.react',
+  onContentMouseOver: 'contentMouseover.react',
+  onContentMouseMove: 'contentMousemove.react',
+  onContentMouseOut: 'contentMouseout.react',
+  onContentMouseDown: 'contentMousedown.react',
+  onContentMouseUp: 'contentMouseup.react',
+  onContentDblClick: 'contentDblclick.react',
+  onContentTouchStart: 'contentTouchstart.react',
+  onContentTouchMove: 'contentTouchmove.react',
+  onContentTouchEnd: 'contentTouchend.react',
+  onContentTap: 'contentTap.react',
+  onContentDblTap: 'contentDblTap.react'
 };
 module.exports = exports['default'];

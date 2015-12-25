@@ -1,4 +1,4 @@
-import React from 'react/addons';
+import React from 'react';
 import Base from './Base';
 
 class Container extends Base {
@@ -23,7 +23,7 @@ class Container extends Base {
   render() {
     return (
       <span>
-        {React.Children.map(this.props.children, child => child ? React.addons.cloneWithProps(child) : null)}
+        {React.Children.map(this.props.children, child => child ? React.cloneElement(child) : null)}
       </span>
     );
   }

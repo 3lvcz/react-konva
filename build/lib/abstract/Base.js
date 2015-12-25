@@ -1,40 +1,38 @@
 'use strict';
 
-var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
-
-var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
-
-var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
-
 exports.__esModule = true;
 
-var _React$Component = require('react');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _React$Component2 = _interopRequireWildcard(_React$Component);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-var _Konva = require('konva');
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var _Konva2 = _interopRequireWildcard(_Konva);
+var _react = require('react');
 
-var _diff = require('../util');
+var _react2 = _interopRequireDefault(_react);
 
-var _events = require('../events.js');
+var _konva = require('konva');
 
-var _events2 = _interopRequireWildcard(_events);
+var _konva2 = _interopRequireDefault(_konva);
+
+var _util = require('../util');
+
+var _eventsJs = require('../events.js');
+
+var _eventsJs2 = _interopRequireDefault(_eventsJs);
 
 var Base = (function (_Component) {
+  _inherits(Base, _Component);
+
   function Base() {
     _classCallCheck(this, Base);
 
-    if (_Component != null) {
-      _Component.apply(this, arguments);
-    }
+    _Component.apply(this, arguments);
   }
 
-  _inherits(Base, _Component);
-
   Base.prototype.createKonvaNode = function createKonvaNode() {
-    return new _Konva2['default'][this.displayName](this.getValidProps());
+    return new _konva2['default'][this.displayName](this.getValidProps());
   };
 
   Base.prototype.componentDidMount = function componentDidMount() {
@@ -60,7 +58,7 @@ var Base = (function (_Component) {
     var props = {};
 
     Object.keys(this.props).filter(function (prop) {
-      return !_events2['default'][prop] && _this.isValidProp(prop);
+      return !_eventsJs2['default'][prop] && _this.isValidProp(prop);
     }).forEach(function (prop) {
       return props[prop] = _this.props[prop];
     });
@@ -69,9 +67,9 @@ var Base = (function (_Component) {
   };
 
   Base.prototype.updateNodeProps = function updateNodeProps(newProps) {
-    var oldProps = arguments[1] === undefined ? {} : arguments[1];
+    var oldProps = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
 
-    var differences = _diff.diff(oldProps, newProps);
+    var differences = _util.diff(oldProps, newProps);
 
     for (var _iterator = differences.entries(), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
       var _ref;
@@ -88,7 +86,7 @@ var Base = (function (_Component) {
       var prop = _ref[0];
       var type = _ref[1];
 
-      var _event = _events2['default'][prop];
+      var _event = _eventsJs2['default'][prop];
       var value = newProps[prop];
 
       if (_event) {
@@ -114,11 +112,11 @@ var Base = (function (_Component) {
   };
 
   Base.prototype.render = function render() {
-    return _React$Component2['default'].createElement('span', null);
+    return _react2['default'].createElement('span', null);
   };
 
   return Base;
-})(_React$Component.Component);
+})(_react.Component);
 
 exports['default'] = Base;
 module.exports = exports['default'];

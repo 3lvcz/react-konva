@@ -1,36 +1,35 @@
 'use strict';
 
-var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
-
-var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
-
-var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
-
 exports.__esModule = true;
+var _slice = Array.prototype.slice;
 
-var _React = require('react');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _React2 = _interopRequireWildcard(_React);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
 
 var _Container2 = require('./Container');
 
-var _Container3 = _interopRequireWildcard(_Container2);
+var _Container3 = _interopRequireDefault(_Container2);
 
 var ContainerComponent = (function (_Container) {
+  _inherits(ContainerComponent, _Container);
+
   function ContainerComponent() {
     _classCallCheck(this, ContainerComponent);
 
-    if (_Container != null) {
-      _Container.apply(this, arguments);
-    }
+    _Container.apply(this, arguments);
   }
-
-  _inherits(ContainerComponent, _Container);
 
   ContainerComponent.prototype.componentDidMount = function componentDidMount() {
     var _Container$prototype$componentDidMount;
 
-    (_Container$prototype$componentDidMount = _Container.prototype.componentDidMount).call.apply(_Container$prototype$componentDidMount, [this].concat(arguments));
+    (_Container$prototype$componentDidMount = _Container.prototype.componentDidMount).call.apply(_Container$prototype$componentDidMount, [this].concat(_slice.call(arguments)));
     this.context.container.add(this.node);
   };
 
@@ -38,7 +37,7 @@ var ContainerComponent = (function (_Container) {
 })(_Container3['default']);
 
 ContainerComponent.contextTypes = {
-  container: _React2['default'].PropTypes.object.isRequired
+  container: _react2['default'].PropTypes.object.isRequired
 };
 
 exports['default'] = ContainerComponent;
